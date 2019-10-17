@@ -59,4 +59,4 @@ app.delete('/movies/:id', movies.deleteOne);//task 1+
 //app.delete('/movies/:movId/:actId', movies.removeActor);//
 app.post('/movies/:movName/:actorName', movies.addActor);//task 5+
 app.get('/movies/:year1/:year2', movies.getAllYear);//task 6+
-app.delete('/movies/:year', movies.deleteMovies);
+app.delete('/movies/year/:year', movies.removeMovies);

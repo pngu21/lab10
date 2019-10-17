@@ -47,20 +47,12 @@ module.exports = {
     },
 
     removeMovies: function(req, res){
-      //let movieID = new mongoose.Types.ObjectId(req.params.movieId);
-      //let year = req.params.year;
-      //let year2 = req.params.year2;
-
-      Movie.where({'year': Number }).where('year').lte(year)/*.where('year').lte(year2)*/.exec(function (err, movie) {
+      Movie.deleteMany({year:{$lt: req.params.year}}, function(err, movie){
         if (err) return res.status(400).json(err);
         if (!movie) return res.status(404).json();
-        res.json(movie);
-      Movie.deleteMany({_id: req.params.year}, function(err, movie){
-        if (err) return res.status(400).json(err);
-        if (!movie) return res.status(404).json();
+        res.json();
       });
-    });//task 6
-  },
+    },//task 6
 
     removeActor: function(req, res){
         let movieID = new mongoose.Types.ObjectId(req.params.movId);

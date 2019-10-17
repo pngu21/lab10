@@ -58,7 +58,7 @@ export class DatabaseService {
   }
 
   deleteMovies(year) {
-    const url = '/movies/' + year;
+    const url = '/movies/year/' + year;
     return this.http.delete(url, httpOptions);
   }
 }

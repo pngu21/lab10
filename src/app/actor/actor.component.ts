@@ -15,6 +15,7 @@ export class ActorComponent implements OnInit {
   movName = '';
   year = 0;
   movieId = '';
+  ayear = 0;
 
   constructor(private dbService: DatabaseService) {}
 
@@ -103,8 +104,9 @@ export class ActorComponent implements OnInit {
   }
 
   // Delete Movie by Year
-  removeMovies(year) {
-    this.dbService.deleteMovies(year).subscribe(result => {
+  removeMovies() {
+    this.dbService.deleteMovies(this.ayear).subscribe(result => {
+      this.changeSection(9);
       this.onGetMovies();
     });
   }
